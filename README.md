@@ -1,4 +1,6 @@
-# This project use vue.js to suit the mobile terminal for MaoYan Movie.
+# MaoYan Movie Mobile terminal
+
+## This project use vue.js to suit the mobile terminal for MaoYan Movie.
 
 ## Project setup
 ```
