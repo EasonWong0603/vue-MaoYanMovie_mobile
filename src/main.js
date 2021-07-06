@@ -8,12 +8,16 @@ import "./assets/css/reset.less";
 import "./assets/css/var.less";
 // 引入图标字体
 import "./assets/font/iconfont.css";
+
 //设置根字体大小
 import "amfe-flexible";
+
+import router from "./router";
 
 //生产环境不提示代码错误
 Vue.config.productionTip = false;
 
 new Vue({
+  router,
   render: (h) => h(App),
 }).$mount("#app");
