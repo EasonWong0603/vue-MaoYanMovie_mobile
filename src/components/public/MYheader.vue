@@ -30,6 +30,7 @@ header {
   color: white;
   font-size: @l-font;
   position: relative;
+  // 图标文本
   span {
     font-size: @xxl-font;
     position: absolute;

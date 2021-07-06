@@ -1,5 +1,5 @@
 <template>
-  <nav>nav</nav>
+  <div>hotitem</div>
 </template>
 
 <script>
@@ -18,4 +18,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+// 引入自定义变量css样式
+@import "../../assets/css/var.less";
+</style>
