@@ -64,11 +64,11 @@ footer {
       font-size: @xxs-font;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-evenly;
       align-items: center;
       color: #696969;
       span {
-        font-size: 25px;
+        font-size: @xxl-font;
       }
     }
   }
