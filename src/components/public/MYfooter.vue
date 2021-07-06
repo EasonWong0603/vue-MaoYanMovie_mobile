@@ -47,6 +47,7 @@ export default {
 <style lang="less" scoped>
 // 引入自定义变量css样式
 @import "../../assets/css/var.less";
+
 footer {
   width: 100%;
   height: 50px;
@@ -62,11 +63,11 @@ footer {
     li {
       flex: 1;
       font-size: @xxs-font;
+      color: #696969;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      color: #696969;
       span {
         font-size: @xxl-font;
       }
