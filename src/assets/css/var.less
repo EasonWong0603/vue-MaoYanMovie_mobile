@@ -1,0 +1,26 @@
+//颜色color变量
+@theme-color: #e54847;
+@border-color: #e6e6e6;
+
+// 字体大小font-size变量
+@xxl-font: 22px;
+@xl-font: 20px;
+@l-font: 18px;
+@m-font: 16px;
+@s-font: 14px;
+@xs-font: 12px;
+@xxs-font: 10px;
+
+// 混入
+  // 上下左右居中
+.center(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  // 文字超出转为省略号
+.textof(){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
