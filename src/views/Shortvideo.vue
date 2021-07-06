@@ -1,5 +1,5 @@
 <template>
-  <div class="littlevedio"></div>
+  <div class="shortvideo"></div>
 </template>
 
 <script>

@@ -21,12 +21,6 @@ export default {
     Toprate, //热映部分-最受好评
     Hotitem, //热映部分-项目列表
   },
-
-  computed: {},
-
-  mounted() {},
-
-  methods: {},
 };
 </script>
 
