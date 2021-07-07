@@ -1,5 +1,5 @@
 <template>
-  <div class="shortvideo"></div>
+  <div class="myuser">我的页面</div>
 </template>
 
 <script>

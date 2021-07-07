@@ -1,7 +1,11 @@
 <template>
   <div class="hotitem">
     <ul>
-      <li v-for="item in itemList" :key="item._id">
+      <li
+        v-for="item in itemList"
+        :key="item._id"
+        @click="gotoDetail(item.movieid)"
+      >
         <!-- 电影海报图片 -->
         <img :src="item.img | formatUrl" alt="" />
         <div>
@@ -64,17 +68,13 @@ export default {
   },
   methods: {
     // 请求数据
-
-    //    promise写法
-    // getdate() {
-    //   http.get("/movies/list").then((res) => {
-    //     this.itemList = res.result;
-    //   });
-    // },
-    //    async写法
     async getdate() {
       const res = await http.get("/movies/list");
       this.itemList = res.result;
+    },
+    // 跳转到详情页
+    gotoDetail(movieid) {
+      this.$router.push("/detail/" + movieid);
     },
   },
   filters: {
@@ -87,7 +87,7 @@ export default {
 
 <style lang="less" scoped>
 // 引入自定义变量css样式
-@import "../../assets/css/var.less";
+@import "../../../assets/css/var.less";
 
 .hotitem {
   width: 100%;

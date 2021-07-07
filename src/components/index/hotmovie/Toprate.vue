@@ -57,7 +57,7 @@ export default {
 
 <style lang="less" scoped>
 // 引入自定义变量css样式
-@import "../../assets/css/var.less";
+@import "../../../assets/css/var.less";
 
 .toprate {
   width: 100%;

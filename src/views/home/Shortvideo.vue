@@ -1,5 +1,5 @@
 <template>
-  <div class="show"></div>
+  <div class="shortvideo">小视频页面</div>
 </template>
 
 <script>

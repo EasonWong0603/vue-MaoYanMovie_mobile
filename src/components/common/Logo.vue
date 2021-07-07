@@ -24,6 +24,7 @@ export default {
 <style lang="less" scoped>
 // 引入自定义变量css样式
 @import "../../assets/css/var.less";
+
 .logo {
   height: 60px;
   display: flex;

@@ -1,17 +1,17 @@
 <template>
   <nav>
     <!-- 地区 -->
-    <span class="area">杭州</span>
+    <span class="area" @click="gotoCity">杭州</span>
     <!-- 导航菜单 -->
     <ul>
-      <li
-        v-for="(item, index) in navList"
-        :key="item"
-        :class="{ active: activeNum === index }"
-        @click="change(index)"
+      <router-link
+        tag="li"
+        v-for="item in navList"
+        :key="item.url"
+        :to="item.url"
       >
-        {{ item }}
-      </li>
+        {{ item.title }}
+      </router-link>
     </ul>
     <!-- 搜索 -->
     <span class="iconfont icon-sousuo"></span>
@@ -22,14 +22,31 @@
 export default {
   data() {
     return {
-      navList: ["热映", "影院", "待映", "经典电影"], // 导航菜单数据
-      activeNum: 0, // 导航菜单点击激活
+      // 导航菜单数据
+      navList: [
+        {
+          title: "热映",
+          url: "/home/index/hotmovie",
+        },
+        {
+          title: "影院",
+          url: "/home/index/cinema",
+        },
+        {
+          title: "待映",
+          url: "/home/index/wait",
+        },
+        {
+          title: "经典电影",
+          url: "/home/index/classic",
+        },
+      ],
     };
   },
   methods: {
-    // 导航菜单点击激活事件
-    change(index) {
-      this.activeNum = index;
+    // 跳转到城市选择页面
+    gotoCity() {
+      this.$router.push("/city");
     },
   },
 };
@@ -81,8 +98,8 @@ nav {
       .center();
       position: relative;
     }
-    // 点击事件添加css样式
-    .active {
+    // 激活添加css样式
+    .router-link-active {
       font-size: @m-font;
       color: #333;
       // 下方红色线
