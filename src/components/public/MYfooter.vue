@@ -68,6 +68,7 @@ footer {
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      cursor: pointer;
       span {
         font-size: @xxl-font;
       }

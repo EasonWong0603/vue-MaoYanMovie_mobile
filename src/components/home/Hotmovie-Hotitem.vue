@@ -2,9 +2,12 @@
   <div class="hotitem">
     <ul>
       <li v-for="item in itemList" :key="item._id">
+        <!-- 电影海报图片 -->
         <img :src="item.img | formatUrl" alt="" />
         <div>
+          <!-- 电影名称 -->
           <h3>{{ item.nm }}</h3>
+          <!-- 2d/3d 图标 -->
           <img
             src="data:image/png;base64,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"
             alt=""
@@ -21,20 +24,26 @@
             v-if="item.version === 'v3d'"
             style="width: 17px"
           />
+          <!-- 观众评分 -->
           <p v-if="item.sc">
             观众评
             <span>{{ item.sc }}</span>
           </p>
+          <!-- 想看人数 -->
           <p v-else>
             <span>{{ item.wish }}</span> 人想看
           </p>
+          <!-- 主演 -->
           <p>主演: {{ item.star }}</p>
+          <!-- 影院放映信息 -->
           <p>{{ item.showInfo }}</p>
+          <!-- 预售按钮 -->
+          <button v-if="item.showst === 4" style="background-color: #3c9fe6">
+            预售
+          </button>
+          <!-- 购票按钮 -->
+          <button v-if="item.showst === 3">购票</button>
         </div>
-        <button v-if="item.showst === 4" style="background-color: #3c9fe6">
-          预售
-        </button>
-        <button v-if="item.showst === 3">购票</button>
       </li>
     </ul>
   </div>
@@ -44,11 +53,11 @@
 export default {
   data() {
     return {
-      itemList: [],
+      itemList: [], //存储数据
     };
   },
   mounted() {
-    this.getdate();
+    this.getdate(); //调用获取数据方法
   },
   methods: {
     getdate() {
@@ -57,7 +66,6 @@ export default {
         .then((response) => response.json())
         .then((res) => {
           if (res.status === 0) {
-            console.log(res);
             this.itemList = res.result;
           }
         });
@@ -65,7 +73,7 @@ export default {
   },
   filters: {
     formatUrl(val) {
-      return val.split("/w.h").join("/64.90");
+      return val.split("/w.h").join("/64.90"); //修改url
     },
   },
 };
@@ -78,69 +86,75 @@ export default {
 .hotitem {
   width: 100%;
   background: white;
-  ul {
-    li {
-      height: 114px;
+  ul li {
+    // 电影信息
+    width: 100%;
+    height: 114px;
+    padding-left: 15px;
+    background-color: #fff;
+    color: @text-color;
+    font-size: @s-font;
+    display: flex;
+    align-items: center;
+    // 海报图片
+    > img {
+      width: 64px;
+      height: 90px;
+    }
+    div {
       width: 100%;
-      padding-left: 15px;
-      background-color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: @s-font;
-      color: #777;
-      > img {
-        width: 64px;
-        height: 90px;
+      height: 100%;
+      font-size: @xs-font;
+      padding: 14px 12px 14px 0;
+      margin-left: 8px;
+      border-bottom: 1px solid @border-color;
+      position: relative;
+      // 电影名字
+      h3 {
+        max-width: 195px;
+        font-size: @m-font;
+        color: #333;
+        font-weight: 900;
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 7px;
+        .textof();
       }
-      div {
-        flex: 1;
-        height: 100%;
-        padding-right: 5px;
+      // 3d/2d图标
+      img {
+        width: 43px;
+        height: 14px;
         margin-left: 8px;
-        font-size: @xs-font;
-        padding: 14px 12px 14px 0;
-        border-bottom: 1px solid @border-color;
-        h3 {
-          font-size: @m-font;
-          color: #333;
-          font-weight: 700;
-          margin-bottom: 1px;
-          display: inline-block;
-          max-width: 195px;
-          vertical-align: middle;
-          .textof();
-        }
-        img {
-          margin-left: 8px;
-          width: 43px;
-          height: 14px;
-          vertical-align: middle;
-        }
-        span {
-          font-weight: 700;
-          color: #faaf00;
-          font-size: @s-font;
-        }
-        p {
-          margin-top: 6px;
-          width: 220px;
-          .textof();
-        }
+        vertical-align: middle;
+        margin-bottom: 7px;
       }
+      // 观众评分/想看人数 数字
+      span {
+        font-weight: 900;
+        color: #faaf00;
+        font-size: @s-font;
+      }
+      // 主演/影院放映信息
+      p {
+        width: 220px;
+        margin-top: 6px;
+        .textof();
+      }
+      // 预售/购票 按钮
       button {
-        margin-right: 14px;
         width: 47px;
         height: 27px;
         line-height: 28px;
-        text-align: center;
         background-color: #f03d37;
         color: #fff;
         border-radius: 4px;
-        font-size: @xs-font;
         cursor: pointer;
         border: none;
         outline: none;
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }
