@@ -50,6 +50,9 @@
 </template>
 
 <script>
+// 引入接口函数
+import http from "@/utils/http.js";
+
 export default {
   data() {
     return {
@@ -60,15 +63,18 @@ export default {
     this.getdate(); //调用获取数据方法
   },
   methods: {
-    getdate() {
-      // 请求数据
-      fetch("http://www.pudge.wang:3080/api/movies/list")
-        .then((response) => response.json())
-        .then((res) => {
-          if (res.status === 0) {
-            this.itemList = res.result;
-          }
-        });
+    // 请求数据
+
+    //    promise写法
+    // getdate() {
+    //   http.get("/movies/list").then((res) => {
+    //     this.itemList = res.result;
+    //   });
+    // },
+    //    async写法
+    async getdate() {
+      const res = await http.get("/movies/list");
+      this.itemList = res.result;
     },
   },
   filters: {
