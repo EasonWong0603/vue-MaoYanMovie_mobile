@@ -26,7 +26,7 @@
 
 <script>
 // 引入接口函数
-import http from "@/utils/http.js";
+import { getToprateDateApi } from "@/utils/api";
 
 export default {
   data() {
@@ -39,16 +39,8 @@ export default {
   },
   methods: {
     // 请求数据
-
-    //    promise写法
-    // getdate() {
-    //   http.get("/rated/list").then((res) => {
-    // this.rateList = res.result;
-    //   });
-    // },
-    //    async写法
     async getdate() {
-      const res = await http.get("/rated/list");
+      const res = await getToprateDateApi();
       this.rateList = res.result;
     },
   },

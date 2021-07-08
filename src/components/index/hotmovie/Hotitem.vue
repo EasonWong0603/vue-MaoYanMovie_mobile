@@ -55,7 +55,7 @@
 
 <script>
 // 引入接口函数
-import http from "@/utils/http.js";
+import { getHotitemDateApi } from "@/utils/api";
 
 export default {
   data() {
@@ -69,12 +69,12 @@ export default {
   methods: {
     // 请求数据
     async getdate() {
-      const res = await http.get("/movies/list");
+      const res = await getHotitemDateApi();
       this.itemList = res.result;
     },
     // 跳转到详情页
     gotoDetail(movieid) {
-      this.$router.push("/detail/" + movieid);
+      this.$router.push(`/detail/${movieid}`);
     },
   },
   filters: {

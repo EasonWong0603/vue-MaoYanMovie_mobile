@@ -61,7 +61,7 @@ export default {
       padding-right: 10px;
       font-size: @m-font;
       background: url(../../assets/nav_arrow.png) no-repeat right center/10px
-        10px;
+        10px; //右箭头
     }
   }
 }

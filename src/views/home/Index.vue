@@ -3,8 +3,7 @@
     <div class="fixed">
       <!-- 头部组件 -->
       <Myheader :hasBack="false" :hasMenu="true">猫眼电影</Myheader>
-      <!-- <Myheader :hasBack="true" :hasMenu="false">1921</Myheader> -->
-
+      <Myheader :hasBack="true" :hasMenu="false" v-if="false">1921</Myheader>
       <!-- logo组件 -->
       <Logo />
       <!-- 导航组件 -->
