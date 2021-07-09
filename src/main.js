@@ -15,11 +15,14 @@ import "./assets/font/iconfont.css";
 
 //引入路由
 import router from "./router";
+//引入Vuex.store
+import store from "./store";
 
 //生产环境不提示代码错误
 Vue.config.productionTip = false;
 
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount("#app");
