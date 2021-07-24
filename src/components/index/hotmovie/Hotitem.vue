@@ -55,22 +55,49 @@
 
 <script>
 // 引入接口函数
-import { getHotitemDateApi } from "@/utils/api";
+import { getHotitemDateApi, getMoreDataApi } from "@/utils/api";
 
 export default {
+  porps: {
+    // num一旦改变，父组件下拉触底，需要请求数据
+    num: Number,
+  },
   data() {
     return {
       itemList: [], //存储数据
+      size: 6, //每次请求的数据条数
+      ids: [], //所有电影的id
+      startId: "0",
     };
   },
+  watch: {
+    async num() {
+      // 截取数组
+      const arr = this.ids.silce(this.startId, this.startId + this.size);
+      // 获取新数据
+      const res = await getMoreDataApi({ ids: arr.join(",") });
+      // 拼接进原数据
+      this.itemList = this.itemList.concat(res.realut);
+      this.startId += this.size;
+      // 等待渲染
+      await this.$nextTick();
+      this.$emit("update", this.itemList.length >= this.ids.length);
+    },
+  },
   mounted() {
-    this.getdate(); //调用获取数据方法
+    this.getHotdate(); //调用获取数据方法
   },
   methods: {
     // 请求数据
-    async getdate() {
+    async getHotdate() {
       const res = await getHotitemDateApi();
       this.itemList = res.result;
+      // 拿到所有的电影id
+      this.ids = res.ids;
+      // this.startId = res.itemList.length;
+      // 异步事件队列，等待数据渲染完成再执行
+      await this.$nextTick();
+      this.$emit("finish");
     },
     // 跳转到详情页
     gotoDetail(movieid) {

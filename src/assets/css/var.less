@@ -32,5 +32,17 @@
     bottom: 50px;
     left: 0;
     right: 0;
-    overflow: auto;
+    overflow: hidden;
+    background: white;
+}
+.progress(){
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100% !important;
+    .bar {
+      height: 5px !important;
+      background: green;
+    }
 }

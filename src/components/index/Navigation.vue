@@ -1,7 +1,7 @@
 <template>
   <nav>
     <!-- 地区 -->
-    <span class="area" @click="gotoCity">杭州</span>
+    <span class="area" @click="gotoCity">{{ $store.state.cityName }}</span>
     <!-- 导航菜单 -->
     <ul>
       <router-link
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+// import { mapState } from "vuex";
+
 export default {
   data() {
     return {
@@ -43,6 +45,7 @@ export default {
       ],
     };
   },
+  // computed: mapState(["cityName"]),
   methods: {
     // 跳转到城市选择页面
     gotoCity() {

@@ -1,3 +1,4 @@
+import NProgress from "nprogress";
 // 路径前缀
 const BASE_URL = "http://www.pudge.wang:3080/api";
 // 请求数据
@@ -21,7 +22,23 @@ const http = {
         });
     });
   },
-  post() {},
+  post(url, data) {
+    NProgress.start();
+    return new Promise((reslove) => {
+      return fetch(BASE_URL + url, {
+        body: JSON.stringify(data),
+        header: { "content-type": "application/json" },
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((res) => {
+          NProgress.done();
+          if (res.status === 0) {
+            reslove(res);
+          }
+        });
+    });
+  },
 };
 
 export default http;

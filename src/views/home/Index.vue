@@ -9,7 +9,11 @@
       <!-- 导航组件 -->
       <Navigation />
     </div>
-    <router-view />
+    <keep-alive>
+      <!-- 添加缓存 -->
+      <router-view v-if="$route.meta.requireAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.requireAlive"></router-view>
   </div>
 </template>
 
