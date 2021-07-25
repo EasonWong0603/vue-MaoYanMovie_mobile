@@ -15,21 +15,24 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 
 export default {
   mounted() {
     this.getCityAsync();
   },
   // 引入城市列表
-  computed: mapState(["cityList"]),
+  computed: mapState({
+    cityList: (state) => state.city.cityList,
+  }),
 
   methods: {
     // 请求城市数据
-    ...mapActions(["getCityAsync"]),
+    ...mapActions("city", ["getCityAsync"]),
+    ...mapMutations("city", ["changeCity"]),
     // 点击城市，改变城市和城市id，并返回主页
     clickCity(value) {
-      this.$store.commit("changeCity", {
+      this.changeCity({
         name: value.name,
         id: value.cityId,
       });

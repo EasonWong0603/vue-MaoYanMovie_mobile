@@ -24,8 +24,10 @@ export default {
       id: this.id,
     });
   },
-  computed: mapState(["detailData"]),
-  methods: mapActions(["getDetailAsync"]),
+  computed: mapState({
+    detailData: (state) => state.detail.detailData,
+  }),
+  methods: mapActions("detail", ["getDetailAsync"]),
 
   // 当路由更新时，发送新页面的id，重新请求数据
   async beforeRouteUpdate(to, from, next) {

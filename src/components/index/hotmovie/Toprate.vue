@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapState, mapActins } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 // 引入better-scroll插件，用于优化滚动
 import BetterScroll from "better-scroll";
@@ -42,8 +42,10 @@ export default {
       click: true,
     });
   },
-  computed: mapState(["rateList"]),
-  methods: mapActins(["getToprateAsync"]),
+  computed: mapState({
+    rateList: (state) => state.toprate.rateList,
+  }),
+  methods: mapActions("toprate", ["getToprateAsync"]),
 };
 </script>
 
